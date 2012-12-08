@@ -1,5 +1,7 @@
 #include "queue.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int test_queue()
 {
@@ -10,10 +12,13 @@ int test_queue()
         fprintf(stderr,"queue init failed\n");
         return -1;
     }
-    int data_array[6] = {10,19,23,45,32,8};
+    int data_array[10] = {0};
     int i = 0;
-    while(i<6)
+    srand(time(NULL));
+    while(i<10)
     {
+        data_array[i] = rand()%100;
+        fprintf(stdout,"%d\t",data_array[i]);
         ret = queue_put(&queue,&data_array[i]);
         if(ret < 0)
         {
@@ -22,6 +27,7 @@ int test_queue()
         }
         i++;
     }
+    fprintf(stdout,"\n");
 
     int *p;
     while(queue_empty(&queue)==0)
