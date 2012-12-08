@@ -1,4 +1,4 @@
 queue
 =====
 
-FIFO queue
+THIS  IS  C IMPLEMENTATION  OF QUEUE, FIFO.
